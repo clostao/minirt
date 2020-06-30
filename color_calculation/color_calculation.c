@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 12:03:43 by carlos            #+#    #+#             */
-/*   Updated: 2020/06/30 18:30:42 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/06/30 19:28:01 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ t_color calculate_color_from_vector(t_ray ray, t_scene scene)
 
     collision = calculate_closest_collision(ray, scene);
     if (collision.lambda < 0)
-        return (black_color());   
+        return (black_color()); 
     collision_point = get_point_lambda_ray(ray, collision.lambda);     
     light_color = calculate_light_color_from_collision(collision_point, scene);
-    light_color = add_colors(light_color, scene.ambient_light.color);
-    color = apply_light_to_color(collision, light_color);
+    light_color = add_color(light_color, scene.ambient_light.color);
+    color = apply_light_to_color(collision.color, light_color);
     return (color);
 }
 
@@ -64,5 +64,15 @@ t_color check_color_limits(t_color light_color)
     result.red = (light_color.red > 255) ? 255 : light_color.red;
     result.green = (light_color.green > 255) ? 255 : light_color.green;
     result.blue = (light_color.blue > 255) ? 255 : light_color.blue;
+    return (result);
+}
+
+t_color apply_light_to_color(t_color color, t_color light)
+{
+    t_color result;
+
+    result.red = color.red * light.red / 255;
+    result.green = color.green * light.green / 255;
+    result.blue = color.blue * light.blue / 255;
     return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 16:23:01 by clostao-          #+#    #+#             */
-/*   Updated: 2020/06/30 18:24:48 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/06/30 18:50:11 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@
     int x;
     int y;
  }              t_screen;
+ t_vector3 get_vector_from_camera_coord(t_scene scene, int i, int j);
  #endif

@@ -27,6 +27,7 @@
 	t_vector3	normal_vector;
 	t_vector3	center;
 	double		height;
+	double		radius;
 	t_color		color;
  }				t_cylinder;
  typedef struct s_plane
@@ -47,5 +48,12 @@
 	t_vector3	orientation;
 	int			fov;
  }				t_camera;
+ typedef struct s_circle
+ {
+	t_vector3 	normal_vector;
+	t_vector3 	center;
+	double		radius;
+	t_color		color;
+ }				t_circle;
  
 #endif

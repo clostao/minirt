@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cylinder_collide.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carlos <carlos@student.42.fr>              +#+  +:+       +#+        */
+/*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/16 08:28:10 by carlos            #+#    #+#             */
-/*   Updated: 2020/05/21 13:42:45 by carlos           ###   ########.fr       */
+/*   Updated: 2020/06/30 19:26:48 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,22 @@ double get_cylinder_collision_angle(t_cylinder cylinder, t_ray ray)
     return (90 - normal_angle);
 }
 
+double check_solution(double x, t_cylinder cylinder, t_ray ray)
+{
+    t_vector3 vector_difference;
+    double max;
+
+    max = pow(cylinder.height / 2.0, 2) + pow(cylinder.radius, 2);
+    max = sqrt(max);
+    if (x > 0)
+    {
+        vector_difference = vector_between_two_points(cylinder.center, get_point_lambda_ray(ray, x));
+        if (vector_module(vector_difference) > max)
+            return (-1);
+    }
+    return (x);
+}
+
 t_collision cylinder_collision(t_cylinder cylinder, t_ray ray)
 {
     t_trinomial trinomial;
@@ -66,6 +82,8 @@ t_collision cylinder_collision(t_cylinder cylinder, t_ray ray)
 
     trinomial = get_trinomial_cylinder(cylinder, ray);
     solution = second_grade_equation_solver(trinomial);
+    solution.x1 = check_solution(solution.x1, cylinder, ray);
+    solution.x2 = check_solution(solution.x2, cylinder, ray);
     collision.lambda = get_lowest_positive_solution(solution);
     collision.color = cylinder.color;
     collision.angle = get_cylinder_angle(cylinder, ray);

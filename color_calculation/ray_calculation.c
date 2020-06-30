@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 12:15:51 by carlos            #+#    #+#             */
-/*   Updated: 2020/06/30 17:08:05 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/06/30 18:42:47 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "../headers/coordenates.h"
 #include "../headers/program_management.h"
 #include "../headers/math_structures.h"
+#include "../headers/main_structures.h"
 
 t_collision  get_collide_from_object(t_object_list *object, t_ray ray)
 {

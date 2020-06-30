@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 13:03:59 by carlos            #+#    #+#             */
-/*   Updated: 2020/06/30 18:09:12 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/06/30 19:26:40 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "../headers/coordenates.h"
 #include "../headers/program_management.h"
 #include "../headers/math_structures.h"
+#include "../headers/main_structures.h"
 
 t_color apply_lightness_to_color(t_color color, double lightness)
 {
@@ -45,7 +46,7 @@ t_ray get_collision_ray_from_light(t_light light, t_vector3 collision_point)
     return (result);
 }
 
-t_color add_color((t_color acccolor, t_color light_color)
+t_color add_color(t_color acccolor, t_color light_color)
 {
     t_color result;
 
