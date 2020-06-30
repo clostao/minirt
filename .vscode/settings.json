@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "main_structures.h": "c",
+        "collision_tools.h": "c",
+        "color_tools.h": "c",
+        "figures.h": "c",
+        "math_structures.h": "c",
+        "program_management.h": "c",
+        "coordenates.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Enabled"
+}
