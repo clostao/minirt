@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 15:49:14 by clostao-          #+#    #+#             */
-/*   Updated: 2020/06/30 19:27:46 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/01 18:08:07 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void generate_scene(t_scene scene)
         j = 0;
         while (j < scene.screen.y)
         {
-            camera_ray.vector = get_vector_from_camera_coord(scene, i, j);
+            camera_ray.vector = ray_from_pixel(scene, i, j);
             color = calculate_color_from_vector(camera_ray, scene);
             print_on_screen(color, i, j, scene);
             j++;
