@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector_tools.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carlos <carlos@student.42.fr>              +#+  +:+       +#+        */
+/*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 12:32:44 by carlos            #+#    #+#             */
-/*   Updated: 2020/05/21 13:39:02 by carlos           ###   ########.fr       */
+/*   Updated: 2020/07/06 17:21:41 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 #include "../headers/math_structures.h"
 #include "../headers/program_management.h"
 
-t_vector3 vector_between_two_points(t_vector3 v, t_vector3 w)
+t_vector3 set_vector3(double x, double y, double z)
 {
-    t_vector3 res;
+    t_vector3 result;
 
-    res.x = v.x - w.x;
-    res.y = v.y - w.y;
-    res.z = v.z - w.z;
-    return (res);
+    result.x = x;
+    result.y = y;
+    result.z = z;
+    return (result);
 }
 
 t_vector3 unitary_vector(t_vector3 v)
@@ -65,4 +65,14 @@ double angle_between_vectors(t_vector3 v, t_vector3 w)
     product = point_vector_product(v, w);
     angle = acos(product / vector_module(v) / vector_module(w));
     return (angle);
+}
+
+t_vector3 cross_vector_product(t_vector3 v, t_vector3 w)
+{
+    t_vector3 result;
+
+    result.x = v.y * w.z - w.y * v.z;
+    result.y = w.x * v.z - v.x * w.z;
+    result.z = v.x * w.y - w.x * v.y;
+    return (result);
 }

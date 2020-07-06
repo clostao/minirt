@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 15:49:14 by clostao-          #+#    #+#             */
-/*   Updated: 2020/07/01 18:08:07 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/06 17:51:32 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 int main(int argc, char *argv[])
 {
-    t_scene scene = read_scene_from_file();
+    t_scene scene;
+    
+    scene = read_scene_from_file(argc, argv);
     generate_scene(scene);
 }
 
@@ -25,9 +27,11 @@ void generate_scene(t_scene scene)
     int         j;
     t_ray   camera_ray;
     t_color     color;
+    t_base      base;
 
     camera_ray.point = scene.camera.point;
     i = 0;
+    base =
     while (i < scene.screen.x)
     {
         j = 0;

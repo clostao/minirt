@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 16:23:01 by clostao-          #+#    #+#             */
-/*   Updated: 2020/07/01 18:08:27 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/06 17:59:33 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
  #include "program_management.h"
  #include "math_structures.h"
  typedef struct s_scene {
-    t_object_list   *lights;
-    t_object_list   *figures;
-    t_light         ambient_light;
-    t_camera        camera;
-    t_screen        screen;    
+   t_object_list   *lights;
+   t_object_list   *figures;
+   t_light         ambient_light;
+   t_camera        camera;
+   t_screen        screen;    
  }              t_scene;
  typedef struct s_camera {
     t_vector3   point;
