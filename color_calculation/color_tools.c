@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 13:03:59 by carlos            #+#    #+#             */
-/*   Updated: 2020/06/30 19:26:40 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/08 19:07:48 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ t_ray get_collision_ray_from_light(t_light light, t_vector3 collision_point)
     return (result);
 }
 
-t_color add_color(t_color acccolor, t_color light_color)
+t_color add_color(t_color acccolor, t_color light_color, t_collision collision)
 {
     t_color result;
 
-    result.red = accolor.red + light_color.red * light_color.lightness;
-    result.green = accolor.green + light_color.red * light_color.lightness;
-    result.blue = accolor.blue + light_color.red * light_color.lightness;
+    result.red = accolor.red + light_color.red * light_color.lightness * sin(collision.angle);
+    result.green = accolor.green + light_color.red * light_color.lightness * sin(collision.angle);
+    result.blue = accolor.blue + light_color.red * light_color.lightness * sin(collision.angle);
     return (result);
 }

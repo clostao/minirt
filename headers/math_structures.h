@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 13:06:30 by carlos            #+#    #+#             */
-/*   Updated: 2020/07/08 18:39:55 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/08 19:27:55 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
  #include <stdarg.h>
  #include <stdlib.h>
  #include "headers.h"
+ /*
  typedef struct   s_base
  {
    t_vector3 i;
@@ -39,6 +40,7 @@
     double c;
     double x;
  }              t_binomial;
+ 
  t_trinomial      binomial_square(t_binomial bin);
  t_binomial       get_binomial(double c, double x);
  t_binomial       binomial_sum(int argc, ...);
@@ -50,5 +52,6 @@
  t_trinomial      get_trinomial_from_binomial_squared_sum(t_binomial bin1, t_binomial bin2, t_binomial bin3);
  double           get_lowest_positive_value(int argc, ...);
  t_vector3        cross_vector_product(t_vector3 v, t_vector3 w);
- t_base           calculate_camera_base(t_vector3 z_vector); 
+ t_base           calculate_camera_base(t_vector3 z_vector);
+ */
 #endif

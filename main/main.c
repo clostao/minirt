@@ -6,13 +6,11 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 15:49:14 by clostao-          #+#    #+#             */
-/*   Updated: 2020/07/08 18:34:07 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/08 19:36:57 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/headers.h"
-#include "color_tools.h"
-#include <strings.h>
 
 int main(int argc, char *argv[])
 {

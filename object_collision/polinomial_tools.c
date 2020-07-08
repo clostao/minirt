@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   polinomial_tools.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carlos <carlos@student.42.fr>              +#+  +:+       +#+        */
+/*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 23:10:23 by carlos            #+#    #+#             */
-/*   Updated: 2020/05/16 09:31:13 by carlos           ###   ########.fr       */
+/*   Updated: 2020/07/08 19:43:22 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "math_structures.h"
+#include "../headers/headers.h"
 
 t_trinomial binomial_square(t_binomial bin)
 {

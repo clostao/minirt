@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   polinomial_tools2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carlos <carlos@student.42.fr>              +#+  +:+       +#+        */
+/*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/16 09:19:54 by carlos            #+#    #+#             */
-/*   Updated: 2020/05/16 09:40:23 by carlos           ###   ########.fr       */
+/*   Updated: 2020/07/08 19:41:53 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "math_structures.h"
+#include "../headers/headers.h"
 
 t_binomial binomial_multiplied_sum(t_binomial x, t_binomial y, int y_multiplier)
 {

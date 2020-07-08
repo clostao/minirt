@@ -1,7 +1,7 @@
 #ifndef PROGRAM_MANAGEMENT_H
  #define PROGRAM_MANAGEMENT_H
  #include "figures.h"
- typedef struct s_ray
+ /*typedef struct s_ray
  {
     t_vector3 point;
     t_vector3 vector;
@@ -19,4 +19,5 @@
    t_color        color;
    double         lightness;
  }                t_light;
+ */
 #endif

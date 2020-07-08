@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   equation_solver.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carlos <carlos@student.42.fr>              +#+  +:+       +#+        */
+/*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 22:34:20 by carlos            #+#    #+#             */
-/*   Updated: 2020/05/14 23:35:01 by carlos           ###   ########.fr       */
+/*   Updated: 2020/07/08 19:41:10 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "math_structures.h"
+#include "../headers/headers.h"
 
 t_solution second_grade_equation_solver(t_trinomial trin)
 {

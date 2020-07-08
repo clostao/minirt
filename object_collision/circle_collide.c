@@ -6,25 +6,13 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 19:28:46 by clostao-          #+#    #+#             */
-/*   Updated: 2020/06/30 19:42:32 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/08 19:51:16 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/program_management.h"
 #include "../headers/math_structures.h"
 #include "../headers/coordenates.h"
-
-t_collision circle_collision(t_ray ray, t_circle circle)
-{
-    t_plane plane;
-    t_collision collision;
-
-    plane.point = circle.center;
-    plane.normal_vector = circle.normal_vector;
-    plane.color = circle.color;
-    collision = plane_collision(plane, ray);
-
-}
 
 double  check_is_in_circle(t_circle circle, t_ray ray, double solution)
 {
@@ -38,4 +26,19 @@ double  check_is_in_circle(t_circle circle, t_ray ray, double solution)
     if (vector_module(difference_vector) > circle.radius)
         return (-1);
     return (solution);
+}
+t_collision circle_collision(t_ray ray, t_circle circle)
+{
+    t_plane plane;
+    t_collision collision;
+
+    plane.point = circle.center;
+    plane.normal_vector = circle.normal_vector;
+    plane.color = circle.color;
+    collision = plane_collision(plane, ray);
+    if (collision.lambda == -1)
+        return (collision);
+    if (check_is_in_circle(circle, ray, collision.lambda))
+        collision.lambda = -1;
+    return (collision);
 }

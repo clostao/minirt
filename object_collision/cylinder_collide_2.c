@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scene_reader.c                                     :+:      :+:    :+:   */
+/*   cylinder_collide_2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/08 18:21:10 by clostao-          #+#    #+#             */
-/*   Updated: 2020/07/08 19:25:31 by clostao-         ###   ########.fr       */
+/*   Created: 2020/07/08 19:31:31 by clostao-          #+#    #+#             */
+/*   Updated: 2020/07/08 19:35:19 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/headers.h"
 
-t_scene read_scene_from_file(int argc, char **argv)
+double get_cylinder_angle(t_cylinder cylinder, t_ray ray)
 {
-    t_scene second_grade_equation_solver;
-    return (second_grade_equation_solver);
+    return (angle_between_vectors(cylinder.normal_vector, ray.vector));
 }
