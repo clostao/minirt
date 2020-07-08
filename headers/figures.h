@@ -1,10 +1,5 @@
 #ifndef FIGURES_H
  #define FIGURES_H
- t_collision plane_collision(t_plane plane, t_ray ray);
- t_collision cylinder_collision(t_cylinder cylinder, t_ray ray);
- t_collision sphere_collision(t_sphere sphere, t_ray ray);
- t_collision  get_collide_from_object(t_object_list *object, t_ray ray);
- t_vector3 set_vector3(double x, double y, double z);
  typedef struct s_vector3 {
 	double	x;
 	double	y;
@@ -56,5 +51,9 @@
 	double		radius;
 	t_color		color;
  }				t_circle;
- 
+ t_collision 	plane_collision(t_plane plane, t_ray ray);
+ t_collision 	cylinder_collision(t_cylinder cylinder, t_ray ray);
+ t_collision 	sphere_collision(t_sphere sphere, t_ray ray);
+ t_collision  	get_collide_from_object(t_object_list *object, t_ray ray);
+ t_vector3 		set_vector3(double x, double y, double z);
 #endif

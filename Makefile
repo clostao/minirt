@@ -1,0 +1,2 @@
+default: 	camera_controller/*.c color_calculation/*.c coordenates_utils/*.c main/*.c object_collision/*.c scene_reader/*.c screen_controller
+			gcc camera_controller/*.c color_calculation/*.c coordenates_utils/*.c main/*.c object_collision/*.c scene_reader/*.c screen_controller -lmlx -framework OpenGL -framework AppKit -lz

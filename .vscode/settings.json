@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "coordenates.h": "c",
+        "headers.h": "c",
+        "mlx.h": "c",
+        "program_management.h": "c",
+        "strings.h": "c",
+        "math_structures.h": "c"
+    }
+}

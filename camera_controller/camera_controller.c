@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/23 20:04:25 by carlos            #+#    #+#             */
-/*   Updated: 2020/07/06 17:47:34 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/08 18:42:23 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_vector3 get_pixel_from_screen(t_base base, short x, short y, t_scene scene)
 {
     t_vector3 result;
 
-    result = scene.camera.normal;
+    result = scene.camera.orientation;
     result.x += tan(scene.camera.fov / 2) * 2 * x / scene.screen.x;
     result.y += tan(scene.camera.fov / 2) * 2 * y / scene.screen.y;
 }
@@ -27,12 +27,13 @@ t_vector3 ray_from_pixel(t_scene scene, int x, int y)
     t_vector3 res;
     static t_base *base = 0;
 
+
     if (base == 0)
     {
         base = malloc(sizeof(t_base));
-        *base = calculate_camera_base(scene.camera.normal);
+        *base = calculate_camera_base(scene.camera.orientation);
     }
     fov = scene.camera.fov;
-    return (get_pixel_from_screen(base, x, y, scene.camera))
+    return (get_pixel_from_screen(*base, scene.screen.x / 2 - x, scene.screen.y / 2 - y, scene));
 }
 
