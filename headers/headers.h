@@ -158,4 +158,5 @@ t_base calculate_camera_base(t_vector3 z_vector);
 double get_lowest_positive_value(int argc, ...);
 double get_lowest_positive_solution(t_solution solution);
 void   print_on_screen(unsigned int i, unsigned int j, t_scene scene, t_color color);
+t_vector3 ray_from_pixel(t_scene scene, int x, int y);
 #endif

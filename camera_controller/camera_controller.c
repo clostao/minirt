@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/23 20:04:25 by carlos            #+#    #+#             */
-/*   Updated: 2020/07/08 18:42:23 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/14 17:12:29 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_vector3 get_pixel_from_screen(t_base base, short x, short y, t_scene scene)
     result = scene.camera.orientation;
     result.x += tan(scene.camera.fov / 2) * 2 * x / scene.screen.x;
     result.y += tan(scene.camera.fov / 2) * 2 * y / scene.screen.y;
+    return (result);
 }
 
 t_vector3 ray_from_pixel(t_scene scene, int x, int y)

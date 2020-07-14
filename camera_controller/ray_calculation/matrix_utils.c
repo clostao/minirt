@@ -6,13 +6,11 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 15:55:49 by clostao-          #+#    #+#             */
-/*   Updated: 2020/07/06 17:20:46 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/14 17:30:00 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
-#include "headers/math_structures.h"
-#include "headers/coordenates.h"
+#include "../../headers/headers.h"
 
 t_vector3   matrix_product_vector(double matrix[3][3], t_vector3 v)
 {

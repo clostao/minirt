@@ -6,11 +6,11 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 23:42:45 by carlos            #+#    #+#             */
-/*   Updated: 2020/07/06 16:54:02 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/14 17:08:34 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/program_management.h"
+#include "../headers/headers.h"
 
 t_vector3 get_point_lambda_ray(t_ray ray, double lambda)
 {

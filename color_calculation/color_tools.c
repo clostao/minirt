@@ -6,15 +6,11 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 13:03:59 by carlos            #+#    #+#             */
-/*   Updated: 2020/07/08 19:07:48 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/14 17:11:08 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/figures.h"
-#include "../headers/coordenates.h"
-#include "../headers/program_management.h"
-#include "../headers/math_structures.h"
-#include "../headers/main_structures.h"
+#include "../headers/headers.h"
 
 t_color apply_lightness_to_color(t_color color, double lightness)
 {
@@ -50,8 +46,8 @@ t_color add_color(t_color acccolor, t_color light_color, t_collision collision)
 {
     t_color result;
 
-    result.red = accolor.red + light_color.red * light_color.lightness * sin(collision.angle);
-    result.green = accolor.green + light_color.red * light_color.lightness * sin(collision.angle);
-    result.blue = accolor.blue + light_color.red * light_color.lightness * sin(collision.angle);
+    result.red = acccolor.red + light_color.red * light_color.lightness * sin(collision.angle);
+    result.green = acccolor.green + light_color.red * light_color.lightness * sin(collision.angle);
+    result.blue = acccolor.blue + light_color.red * light_color.lightness * sin(collision.angle);
     return (result);
 }

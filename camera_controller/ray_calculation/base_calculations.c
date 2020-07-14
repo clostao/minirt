@@ -6,22 +6,13 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 16:29:40 by clostao-          #+#    #+#             */
-/*   Updated: 2020/07/06 17:30:47 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/14 17:29:33 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/headers.h"
+#include "../../headers/headers.h"
 
-t_base calculate_camera_base(t_vector3 z_vector)
-{
-    t_base result;
-
-    result.k = z_vector;
-    ft_get_base_from_normal_vector(result.k, &result.i, &result.j);
-    return (result);
-}
-
-void    ft_get_base_from_normal_vector(t_vector3 v1, t_vector3 *v2, t_vector3 *v3)
+void    get_base_from_normal_vector(t_vector3 v1, t_vector3 *v2, t_vector3 *v3)
 {
 	t_vector3 aux;
 
@@ -44,4 +35,13 @@ void    ft_get_base_from_normal_vector(t_vector3 v1, t_vector3 *v2, t_vector3 *v
 	}
 	(*v2) = aux;
 	(*v3) = cross_vector_product(v1, *v2);
+}
+
+t_base calculate_camera_base(t_vector3 z_vector)
+{
+    t_base result;
+
+    result.k = z_vector;
+    get_base_from_normal_vector(result.k, &result.i, &result.j);
+    return (result);
 }

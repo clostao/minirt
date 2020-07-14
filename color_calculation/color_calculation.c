@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 12:03:43 by carlos            #+#    #+#             */
-/*   Updated: 2020/07/08 19:05:58 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/14 17:11:40 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_color calculate_color_from_vector(t_ray ray, t_scene scene)
         return (black_color()); 
     collision_point = get_point_lambda_ray(ray, collision.lambda);     
     light_color = calculate_light_color_from_collision(collision_point, scene);
-    light_color = add_color(light_color, scene.ambient_light.color);
+    light_color = add_color(light_color, scene.ambient_light.color, collision);
     color = apply_light_to_color(collision.color, light_color);
     return (color);
 }
