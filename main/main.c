@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 15:49:14 by clostao-          #+#    #+#             */
-/*   Updated: 2020/07/14 17:07:51 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/14 18:28:54 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void generate_scene(t_scene scene)
     t_color     color;
     t_base      base;
 
-    camera_ray.point = scene.camera.center;
+    camera_ray.point = scene.camera->center;
     i = 0;
     while (i < scene.screen.x)
     {
@@ -42,11 +42,11 @@ int main(int argc, char *argv[])
 {
     t_scene scene;
     
-    //scene = *(t_scene *)read_scene_from_file(argc, argv);
+    scene = read_scene_from_file(argc, argv);
     bzero(&scene, sizeof(scene));
-    scene.camera.fov = 120;
-    scene.camera.center = set_vector3(0, 0, 0);
-    scene.camera.orientation = set_vector3(0, 0, 1);
+    scene.camera->fov = 120;
+    scene.camera->center = set_vector3(0, 0, 0);
+    scene.camera->orientation = set_vector3(0, 0, 1);
     scene.minilib.session = mlx_init();
     scene.minilib.actual_camera = 0;
     scene.minilib.images = malloc(sizeof(void *));

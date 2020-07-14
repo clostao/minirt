@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <mlx.h>
+#include "../gnl/get_next_line_bonus.h"
 typedef struct s_object_list
 {
   void *object;
@@ -64,6 +65,11 @@ typedef struct s_camera
   t_vector3 orientation;
   int fov;
 } t_camera;
+typedef struct  s_camera_list
+{
+  t_camera        camera;
+  struct s_camera *next;
+}               t_camera_list;
 typedef struct s_circle
 {
   t_vector3 normal_vector;
@@ -79,19 +85,19 @@ typedef struct s_screen
 } t_screen;
 typedef struct s_minilib
 {
-  short int actual_camera;
-  void **images;
-  void *session;
-  void *window;
+  void      **images;
+  void      *session;
+  void      *window;
 } t_minilib;
 typedef struct s_scene
 {
   t_object_list *lights;
   t_object_list *figures;
-  t_light ambient_light;
-  t_camera camera;
-  t_screen screen;
-  t_minilib minilib;
+  t_light       ambient_light;
+  t_camera_list camera;
+  t_screen      screen;
+  t_minilib     minilib;
+  const char    *file;
 } t_scene;
 
 typedef struct s_base
@@ -159,4 +165,13 @@ double get_lowest_positive_value(int argc, ...);
 double get_lowest_positive_solution(t_solution solution);
 void   print_on_screen(unsigned int i, unsigned int j, t_scene scene, t_color color);
 t_vector3 ray_from_pixel(t_scene scene, int x, int y);
+t_scene read_scene_from_file(int argc, char **argv);
+void throw(const char *str);
+double read_float(char *line);
+t_color read_color(char *line);
+t_vector3 read_vector(char *line);
+void remove_color(char **line);
+void remove_float(char **line);
+void remove_integer(char **line);
+void remove_vector(char **line);
 #endif
