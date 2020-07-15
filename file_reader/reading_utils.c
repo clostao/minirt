@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 18:57:08 by clostao-          #+#    #+#             */
-/*   Updated: 2020/07/15 18:45:58 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/15 20:44:08 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ int number_length(int number)
 
     length = 0;
     while (number != 0)
+    {
         number /= 10;
+        length++;
+    }
     return (length);
 }
 
@@ -30,14 +33,16 @@ double read_float(char *line)
 
     integer_part = atoi(line);
     result = integer_part;
-    while (*line == ' ' || is_digit(*line))
+    while (*line == ' ')
         line++;
-    if (*line == ' ' || *line == 0)
-        return (result);
+    if (*line == '-')
+        line++;
+    while (is_digit(*line))
+        line++;
     if (*line != '.')
-        throw ("Error during reading float number");
+        return (result);
     line++;
-    if (*line != '-')
+    if (!is_digit(*line))
         throw ("Error during reading float number");
     decimal_part = atoi(line);
     result = result + decimal_part / pow(10, number_length(decimal_part));
@@ -49,10 +54,18 @@ t_color read_color(char *line)
     t_color color;
 
     color.red = atoi(line);
+    while (*line == ' ')
+        line++;
+    while (is_digit(*line))
+        line++;
     if (*line != ',')
         throw ("Error during reading color");
     line++;
     color.green = atoi(line);
+    while (*line == ' ')
+        line++;
+    while (is_digit(*line))
+        line++;
     if (*line != ',')
         throw ("Error during reading color");
     line++;
@@ -65,11 +78,16 @@ t_vector3 read_vector(char *line)
     t_vector3 result;
 
     result.x = read_float(line);
+    remove_float(&line);
     if (*line != ',')
         throw ("Error during reading a vector");
+    line++;
     result.y = read_float(line);
+    remove_float(&line);
     if (*line != ',')
         throw ("Error during reading a vector");
+    line++;
     result.z = read_float(line);
+    remove_float(&line);
     return (result);
 }

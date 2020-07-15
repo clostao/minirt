@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 19:17:13 by clostao-          #+#    #+#             */
-/*   Updated: 2020/07/15 18:42:53 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/15 20:43:42 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,35 @@
 
 void remove_color(char **line)
 {
-    while (**line == ' ' && is_digit(**line))
+    while (**line == ' ')
         (*line)++;
-    line++;
-    while (**line == ' ' && is_digit(**line))
+    while (is_digit(**line))
+        (*line)++;    
+    (*line)++;
+    while (**line == ' ')
         (*line)++;
-    line++;
-    while (**line == ' ' && is_digit(**line))
+    while (is_digit(**line))
+        (*line)++;
+    (*line)++;
+    while (**line == ' ')
+        (*line)++;
+    while (is_digit(**line))
         (*line)++;
 }
 
 void remove_float(char **line)
 {
-    while (**line == ' ' || is_digit(**line))
+    while (**line == ' ')
+        (*line)++;
+    if (**line == '-')
+        (*line)++;
+    while (is_digit(**line))
         (*line)++;
     if (**line == '.')
         (*line)++;
-    while (**line == ' ' || is_digit(**line))
+    while (**line == ' ')
+        (*line)++;
+    while (is_digit(**line))
         (*line)++;
 }
 

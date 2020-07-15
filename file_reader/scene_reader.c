@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 18:45:45 by clostao-          #+#    #+#             */
-/*   Updated: 2020/07/14 19:50:41 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/15 20:39:19 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void insert_camera(char *line, t_scene *scene)
 {
     t_camera camera;
 
+    line++;
     camera.center = read_vector(line);
     remove_vector(&line);
     camera.fov = atoi(line);
