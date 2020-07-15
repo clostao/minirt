@@ -65,10 +65,18 @@ typedef struct s_camera
   t_vector3 orientation;
   int fov;
 } t_camera;
+typedef struct  s_triangle
+{
+  t_vector3 p1;
+  t_vector3 p2;
+  t_vector3 p3;
+  t_color   color;
+}               t_triangle;
 typedef struct  s_camera_list
 {
-  t_camera        camera;
-  struct s_camera *next;
+  struct s_camera_list  *prev;
+  t_camera              camera;
+  struct s_camera_list  *next;
 }               t_camera_list;
 typedef struct s_circle
 {
@@ -77,7 +85,13 @@ typedef struct s_circle
   double radius;
   t_color color;
 } t_circle;
-
+typedef struct s_square
+{
+  t_vector3    center;
+  t_vector3    normal_vector;
+  t_color      color;
+  double       side_size;
+}              t_square;
 typedef struct s_screen
 {
   int x;
@@ -94,7 +108,8 @@ typedef struct s_scene
   t_object_list *lights;
   t_object_list *figures;
   t_light       ambient_light;
-  t_camera_list camera;
+  t_camera_list *cameras;
+  t_camera      camera;
   t_screen      screen;
   t_minilib     minilib;
   const char    *file;
@@ -152,6 +167,21 @@ double point_vector_product(t_vector3 v, t_vector3 w);
 t_trinomial binomial_square(t_binomial bin);
 t_binomial get_binomial(double c, double x);
 t_binomial binomial_sum(int argc, ...);
+void add_to_camera_list(t_scene *scene, t_camera camera);
+void add_to_light_list(t_scene *scene, t_light light);
+void throw(const char *str);
+int  is_digit(char c);
+void insert_resolution(char *line, t_scene *scene);
+void insert_ambient_light(char *line, t_scene *scene);
+void insert_light(char *line, t_scene *scene);
+void insert_camera(char *line, t_scene *scene);
+void insert_square(char *line, t_scene *scene);
+void insert_sphere(char *line, t_scene *scene);
+void insert_plane(char *line, t_scene *scene);
+void insert_triangle(char *line, t_scene *scene);
+void insert_cylinder(char *line, t_scene *scene);
+void insert_circle(char *line, t_scene *scene);
+void add_circles_from_cylinder(t_scene *scene, t_cylinder cylinder);
 t_solution second_grade_equation_solver(t_trinomial trin);
 t_trinomial trinomial_sum(int argc, ...);
 t_binomial binomial_multiplied_sum(t_binomial x, t_binomial y, int y_multiplier);
@@ -166,6 +196,7 @@ double get_lowest_positive_solution(t_solution solution);
 void   print_on_screen(unsigned int i, unsigned int j, t_scene scene, t_color color);
 t_vector3 ray_from_pixel(t_scene scene, int x, int y);
 t_scene read_scene_from_file(int argc, char **argv);
+void add_to_figure_list(t_scene *scene, void *figure, char *type);
 void throw(const char *str);
 double read_float(char *line);
 t_color read_color(char *line);

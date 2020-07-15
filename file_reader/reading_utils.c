@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 18:57:08 by clostao-          #+#    #+#             */
-/*   Updated: 2020/07/14 20:24:52 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/15 18:45:58 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,5 @@ t_vector3 read_vector(char *line)
     if (*line != ',')
         throw ("Error during reading a vector");
     result.z = read_float(line);
+    return (result);
 }

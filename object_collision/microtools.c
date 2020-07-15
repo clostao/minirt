@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 23:36:08 by carlos            #+#    #+#             */
-/*   Updated: 2020/07/08 19:46:51 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/15 18:45:06 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,9 @@ void *ft_memup(void *p_struct, size_t size)
     pointer = malloc(size);
     memcpy(pointer, p_struct, size);
     return (pointer);
+}
+
+int     is_digit(char c)
+{
+    return (c >= '0' && c <= '9');
 }

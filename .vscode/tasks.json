@@ -1,0 +1,72 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "gcc build active file",
+            "command": "/usr/bin/gcc",
+            "args": [
+                "-g",
+                "${workspaceFolder}/camera_controller/camera_controller.c",
+                "${workspaceFolder}/camera_controller/ray_calculation/base_calculations.c",
+                "${workspaceFolder}/camera_controller/ray_calculation/matrix_utils.c",
+                "${workspaceFolder}/color_calculation/color_calculation.c",
+                "${workspaceFolder}/color_calculation/color_tools.c",
+                "${workspaceFolder}/color_calculation/ray_calculation.c",
+                "${workspaceFolder}/coordenates_utils/point_tools.c",
+                "${workspaceFolder}/coordenates_utils/vector_tools.c",
+                "${workspaceFolder}/file_reader/figures_reader.c",
+                "${workspaceFolder}/file_reader/figures_reader2.c",
+                "${workspaceFolder}/file_reader/file_reader.c",
+                "${workspaceFolder}/file_reader/list_utils.c",
+                "${workspaceFolder}/file_reader/reading_utils.c",
+                "${workspaceFolder}/file_reader/reading_utils2.c",
+                "${workspaceFolder}/file_reader/scene_reader.c",
+                "${workspaceFolder}/gnl/get_next_line_bonus.c",
+                "${workspaceFolder}/gnl/get_next_line_utils_bonus.c",
+                "${workspaceFolder}/main/error_handler.c",
+                "${workspaceFolder}/main/main.c",
+                "${workspaceFolder}/object_collision/circle_collide.c",
+                "${workspaceFolder}/object_collision/cylinder_collide.c",
+                "${workspaceFolder}/object_collision/cylinder_collide_2.c",
+                "${workspaceFolder}/object_collision/equation_solver.c",
+                "${workspaceFolder}/object_collision/microtools.c",
+                "${workspaceFolder}/object_collision/plane_collide.c",
+                "${workspaceFolder}/object_collision/polinomial_tools.c",
+                "${workspaceFolder}/object_collision/polinomial_tools2.c",
+                "${workspaceFolder}/object_collision/sphere_collide.c",
+                "${workspaceFolder}/screen_controller/screen_printer.c",
+                "-lmlx",
+                "-framework",
+                "OpenGL",
+                "-framework",
+                "AppKit",
+                "-lz",
+                "-o",
+                "${fileDirname}/a.out"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "remove execution file",
+            "command": "/usr/bin/rm",
+            "args": [
+                "-f",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            },
+            "group": "build"
+        }
+    ]
+}

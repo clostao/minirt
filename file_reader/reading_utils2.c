@@ -6,9 +6,11 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 19:17:13 by clostao-          #+#    #+#             */
-/*   Updated: 2020/07/14 20:23:28 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/15 18:42:53 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../headers/headers.h"
 
 void remove_color(char **line)
 {

@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 20:30:04 by clostao-          #+#    #+#             */
-/*   Updated: 2019/12/09 15:51:54 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/15 19:53:03 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int		next_line(int fd, char **str)
 
 int		get_next_line(int fd, char **str)
 {
+	int size = read(fd, *str, 0);
 	if (fd < 0 || !str || read(fd, *str, 0) || BUFFER_SIZE <= 0)
 		return (-1);
 	return (next_line(fd, str));
