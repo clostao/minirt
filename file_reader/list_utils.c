@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 19:51:30 by clostao-          #+#    #+#             */
-/*   Updated: 2020/07/15 17:48:51 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/16 19:35:23 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ void add_to_figure_list(t_scene *scene, void *figure, char *type)
     if (scene->figures == 0)
     {
         scene->figures = calloc(1, sizeof(t_object_list));
-        scene->lights->object = figure;
-        scene->lights->type = strdup(type);
+        scene->figures->object = figure;
+        scene->figures->type = strdup(type);
     }
     else
     {

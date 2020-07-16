@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 23:10:23 by carlos            #+#    #+#             */
-/*   Updated: 2020/07/08 19:43:22 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/16 19:43:42 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_trinomial trinomial_sum(int argc, ...)
 
     va_start(args, argc);
     trin = va_arg(args, t_trinomial);
-    while (argc-- != 1)
+    while (argc-- > 1)
     {
         aux = va_arg(args, t_trinomial);
         trin.c += aux.c;
@@ -57,7 +57,7 @@ t_binomial binomial_sum(int argc, ...)
 
     va_start(args, argc);
     bin = va_arg(args, t_binomial);
-    while (argc-- != 1)
+    while (argc-- > 1)
     {
         aux = va_arg(args, t_binomial);
         bin.c += aux.c;

@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 12:03:43 by carlos            #+#    #+#             */
-/*   Updated: 2020/07/14 17:11:40 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/16 19:42:00 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ t_color calculate_light_color_from_collision(t_vector3 collision_point, t_scene 
         collision = calculate_closest_collision(light_ray, scene);
         if (collision.lambda > 1)
             light_color = add_color(light_color, light.color, collision);
+        lights = lights->next; //Cambiada
     }
     return (check_color_limits(light_color));
 }

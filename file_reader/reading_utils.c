@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 18:57:08 by clostao-          #+#    #+#             */
-/*   Updated: 2020/07/15 20:44:08 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/16 18:56:38 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,7 @@ t_color read_color(char *line)
     t_color color;
 
     color.red = atoi(line);
-    while (*line == ' ')
-        line++;
-    while (is_digit(*line))
-        line++;
+    remove_integer(&line);
     if (*line != ',')
         throw ("Error during reading color");
     line++;

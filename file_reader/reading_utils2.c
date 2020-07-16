@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 19:17:13 by clostao-          #+#    #+#             */
-/*   Updated: 2020/07/15 20:43:42 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/16 18:57:13 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ void remove_float(char **line)
     while (is_digit(**line))
         (*line)++;
     if (**line == '.')
+    {
         (*line)++;
-    while (**line == ' ')
-        (*line)++;
-    while (is_digit(**line))
-        (*line)++;
+        while (is_digit(**line))
+            (*line)++;
+    }   
 }
 
 void remove_integer(char **line)
@@ -54,8 +54,6 @@ void remove_integer(char **line)
         (*line)++;
     while (is_digit(**line))
         (*line)++;
-    if (**line != ' ' && **line != 0)
-        throw ("Error reading integer");
 }
 
 void remove_vector(char **line)

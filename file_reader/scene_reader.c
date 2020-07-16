@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 18:45:45 by clostao-          #+#    #+#             */
-/*   Updated: 2020/07/15 20:39:19 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/16 19:05:37 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,15 @@ void insert_light(char *line, t_scene *scene)
 {
     t_light light;
 
+    line++;
     light.point = read_vector(line);
     remove_vector(&line);
-    light.lightness = read_float(line);
+    light.color.lightness = read_float(line);
+    light.lightness = light.color.lightness;
     remove_float(&line);
     light.color = read_color(line);
     remove_color(&line);
-    while (*line++)
+    while (*line == ' ')
         line++;
     if (*line != 0)
         throw ("Error in light config");
@@ -60,9 +62,9 @@ void insert_camera(char *line, t_scene *scene)
     line++;
     camera.center = read_vector(line);
     remove_vector(&line);
-    camera.fov = atoi(line);
-    remove_integer(&line);
     camera.orientation = read_vector(line);
     remove_vector(&line);
+    camera.fov = atoi(line);
+    remove_integer(&line);
     add_to_camera_list(scene, camera);
 }

@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 17:38:38 by clostao-          #+#    #+#             */
-/*   Updated: 2020/07/15 20:12:10 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/16 20:13:21 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_scene read_file(const char *filename)
             insert_resolution(line, &scene);
         else if (!strncmp(line, "A", 1))
             insert_ambient_light(line, &scene);
-        else if (!strncmp(line, "c", 1))
+        else if (!strncmp(line, "c", 1) && strncmp(line, "cy", 2))
             insert_camera(line, &scene);
         else if (!strncmp(line, "l", 1))
             insert_light(line, &scene);
@@ -60,15 +60,18 @@ t_scene read_file(const char *filename)
     return (scene);
 }
 
-void    init_minilib_settings(t_scene *scene)
+void    init_minilib_settings(t_scene *scene, int print_on_window)
 {
     t_camera_list   *list;
     void            **images;
     size_t          length;
 
+    length = 0;
     scene->minilib.session = mlx_init();
+    if (print_on_window)
+        scene->minilib.window = mlx_new_window(scene->minilib.session, scene->screen.x, scene->screen.y, "Hola bro!");
     list = scene->cameras;
-    while (list->next)
+    while (list)
     {
         list = list->next;
         length++;
@@ -105,6 +108,6 @@ t_scene read_scene_from_file(int argc, char **argv)
         scene.file = 0;
     scene = read_file(argv[1]);
     check_configuration_errors(scene);
-    init_minilib_settings(&scene);
+    init_minilib_settings(&scene, argc == 2);
     return (scene);
 }

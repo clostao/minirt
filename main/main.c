@@ -6,7 +6,7 @@
 /*   By: clostao- <clostao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 15:49:14 by clostao-          #+#    #+#             */
-/*   Updated: 2020/07/15 18:43:55 by clostao-         ###   ########.fr       */
+/*   Updated: 2020/07/16 19:54:19 by clostao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void generate_scene(t_scene scene)
         }
         i++;   
     }
+    mlx_put_image_to_window(scene.minilib.session, scene.minilib.window, *scene.minilib.images, 0, 0);
     mlx_loop(scene.minilib.session);
 }
 
